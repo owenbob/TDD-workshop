@@ -1,6 +1,6 @@
 
-from schema import schema
-from Basetest import BaseTestCase
+# from schema import schema
+from tests.Basetest import BaseTestCase
 
 
 
