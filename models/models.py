@@ -1,12 +1,14 @@
+import os
+
 from sqlalchemy import Column, String, Integer, ForeignKey, func,DateTime
 from sqlalchemy.orm import relationship,scoped_session,sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 
-
-
-
-engine = create_engine('sqlite:///graph_db.sqlite', convert_unicode=True)
+if os.getenv('APP_SETTINGS') == 'development':
+    engine = create_engine('sqlite:///graph_db.sqlite', convert_unicode=True)
+elif os.getenv('APP_SETTINGS') == 'testing':
+    engine = create_engine('sqlite:///test_db.sqlite', convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
