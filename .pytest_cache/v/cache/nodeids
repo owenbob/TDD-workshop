@@ -1,0 +1,3 @@
+[
+  "tests/test_Deleteuser.py::DeleteUser::test_deleteuser_mutation"
+]
