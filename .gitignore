@@ -99,3 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+venv/
+.vscode
+.DS_Store
+graph_db.sqlite
