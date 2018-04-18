@@ -1,8 +1,7 @@
 update_user = '''
     mutation{
-        updateUser(email:"dkamara@gmail.com",firstName:"Jonah",lastName:"Shem"){
+        updateUser(email:"dkamara@gmail.com",firstName:"Jonah"){
         user{
-        firstName
         lastName
         username
         email
@@ -16,8 +15,7 @@ expected_query_after_update = {
         "data": {
         "updateUser": {
         "user": {
-            "firstName": "Jonah",
-            "lastName": "Shem",
+            "lastName": "dick",
             "username": "jcole",
             "email": "dkamara@gmail.com",
             "password": "1234"
