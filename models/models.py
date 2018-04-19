@@ -1,5 +1,4 @@
 import os
-
 from sqlalchemy import Column, String, Integer, ForeignKey, func,DateTime
 from sqlalchemy.orm import relationship,scoped_session,sessionmaker
 from sqlalchemy.ext.declarative import declarative_base

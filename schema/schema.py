@@ -63,6 +63,7 @@ class UpdateUsername(graphene.Mutation):
 
         return UpdateUsername(user=user)
 
+
 class DeleteUser(graphene.Mutation):
     class Arguments:
         email = graphene.String()
@@ -87,7 +88,6 @@ class SocialMutation(graphene.ObjectType):
     create_user = CreateUser.Field()
     update_username = UpdateUsername.Field()
     delete_user = DeleteUser.Field()
-
 
 
 schema = Schema(query=Query, mutation=SocialMutation)
