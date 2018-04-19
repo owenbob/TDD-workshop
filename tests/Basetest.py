@@ -20,8 +20,5 @@ class BaseTestCase(TestCase):
 
 
     def tearDown(self):
-        # self.transaction.rollback()
-        # self.connection.close()
-        # self.test_engine.dispose()
         db_session.remove()
         Base.metadata.drop_all(bind=engine)
