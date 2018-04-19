@@ -103,3 +103,4 @@ venv/
 .vscode
 .DS_Store
 graph_db.sqlite
+test_db.sqlite
