@@ -1,4 +1,5 @@
 import graphene
+
 from graphene_sqlalchemy import SQLAlchemyObjectType, SQLAlchemyConnectionField
 from graphene import relay, Schema, ObjectType
 
@@ -14,6 +15,25 @@ class StoryType(SQLAlchemyObjectType):
     class Meta:
         model = User
         interfaces = (relay.Node,)
+
+
+class CreateUser(graphene.Mutation):
+    
+    class Arguments:
+        username = graphene.String()
+        email = graphene.String()
+        password = graphene.String()
+        first_name = graphene.String()
+        last_name = graphene.String()
+    
+    user = graphene.Field(UserType)
+
+    def mutate(self, info, **kwargs):
+        user = User(**kwargs)
+        db_session.add(user)
+        db_session.commit()
+
+        return CreateUser(user=user)
 
 
 class UpdateUsername(graphene.Mutation):
@@ -50,6 +70,7 @@ class Query(ObjectType):
 
 
 class SocialMutation(graphene.ObjectType):
+    create_user = CreateUser.Field()
     update_username = UpdateUsername.Field()
 
 
