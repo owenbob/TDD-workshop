@@ -2,7 +2,7 @@
 
 #  Testing GraphqL Python Flask API .
 
-## TTD-workshop repo is a simple API written 
+## TTD-workshop repo is a simple API written using python Flask and Graphql using the graphene library with focus on testing queries and mutations.
 
 ## Required Features
   * Test Query
