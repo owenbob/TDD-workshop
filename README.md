@@ -31,7 +31,7 @@ At the terminal or console type
 python app.py
 ```
 ## Run tests
-Set `APP_SETTINGS` to tests
+Set `APP_SETTINGS` to testing
 ```
 export APP_SETTINGS=testing
 ```
