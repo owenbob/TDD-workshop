@@ -6,9 +6,9 @@ from tests.Basetest import BaseTestCase
 from models.models import db_session, User
 from fixtures.user_fixtures import (
     user_mutation_query, user_mutation_response,
-    user_get_query, user_get_query_reponse,
-    users_email_firstname, users_email_firstname_reponse,
-    get_users_usernames, users_usernames_reponse
+    user_get_query, user_get_query_response,
+    users_email_firstname, users_email_firstname_response,
+    get_users_usernames, users_usernames_response
 )
 
 
@@ -35,7 +35,7 @@ class TestUser(BaseTestCase):
 
         execute_query = self.client.execute(
             user_get_query, context_value={'session': db_session})
-        response = user_get_query_reponse
+        response = user_get_query_response
         self.assertEqual(execute_query, response)
     
     def test_query_users_usernames(self):
@@ -51,7 +51,7 @@ class TestUser(BaseTestCase):
 
         execute_query = self.client.execute(
             get_users_usernames, context_value={'session': db_session})
-        response = users_usernames_reponse
+        response = users_usernames_response
         self.assertEqual(execute_query, response)
     
     def test_query_users_email_firstname(self):
@@ -67,5 +67,5 @@ class TestUser(BaseTestCase):
 
         execute_query = self.client.execute(
             users_email_firstname, context_value={'session': db_session})
-        response = users_email_firstname_reponse
+        response = users_email_firstname_response
         self.assertEqual(execute_query, response)

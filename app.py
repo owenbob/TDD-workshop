@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -5,9 +6,6 @@ from flask_graphql import  GraphQLView
 
 from models.models import User,Story,Base,engine,db_session
 from schema.schema import schema
-
-
-engine = create_engine("sqlite:///graph_db.sqlite")
 
 app = Flask(__name__)
 app.add_url_rule('/social', view_func=GraphQLView.as_view('social',schema=schema, graphiql=True))
@@ -21,6 +19,6 @@ def shutdown_session(exception=None):
 
 
 if __name__ == '__main__':
-    Base.metadata.create_all(engine)
+    # Base.metadata.create_all(engine)
     app.run(debug=True)
 

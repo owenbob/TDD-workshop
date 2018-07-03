@@ -36,7 +36,7 @@ class CreateUser(graphene.Mutation):
         return CreateUser(user=user)
 
 
-class UpdateUsername(graphene.Mutation):
+class UpdateUser(graphene.Mutation):
     class Arguments:
         username = graphene.String()
         email = graphene.String()
@@ -61,17 +61,33 @@ class UpdateUsername(graphene.Mutation):
 
         db_session.commit()
 
-        return UpdateUsername(user=user)
+        return UpdateUser(user=user)
+
+
+class DeleteUser(graphene.Mutation):
+    class Arguments:
+        email = graphene.String()
+
+    user = graphene.Field(UserType)
+
+    def mutate(self,info,email):
+        query = UserType.get_query(info)
+        user = query.filter(User.email == email).first()
+
+        db_session.delete(user)
+        db_session.commit()
+        return DeleteUser(user=user)
 
 
 class Query(ObjectType):
     node = relay.Node.Field()
-    user = SQLAlchemyConnectionField(StoryType)
+    users = SQLAlchemyConnectionField(StoryType)
 
 
 class SocialMutation(graphene.ObjectType):
     create_user = CreateUser.Field()
-    update_username = UpdateUsername.Field()
+    update_user = UpdateUser.Field()
+    delete_user = DeleteUser.Field()
 
 
 schema = Schema(query=Query, mutation=SocialMutation)
