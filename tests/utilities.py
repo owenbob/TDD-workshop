@@ -1,6 +1,39 @@
+query_users = '''{ 
+            users{
+                edges{
+                    node{
+                        firstName
+                        lastName
+                        username
+                        email
+                        password
+                        }
+                    }
+                } 
+                }
+            '''
+
+expected_response_query_users = {
+  "data": {
+    "users": {
+      "edges":[ {
+          "node": {
+            "firstName": "jacks",
+            "lastName": "dick",
+            "username": "jcole",
+            "email": "dkam@gmail.com",
+            "password": "1234"    
+          }
+      }
+      ]
+    }
+  }
+}
+
+
 update_user = '''
     mutation{
-        updateUser(email:"dkamara@gmail.com",firstName:"Jonah"){
+        updateUser(email:"dkam@gmail.com",firstName:"Jonah"){
         user{
         lastName
         username
@@ -17,7 +50,7 @@ expected_query_after_update = {
         "user": {
             "lastName": "dick",
             "username": "jcole",
-            "email": "dkamara@gmail.com",
+            "email": "dkam@gmail.com",
             "password": "1234"
         }
         }
@@ -27,7 +60,7 @@ expected_query_after_update = {
 
 delete_user = '''
 mutation{
-        deleteUser(email:"dkamara@gmail.com"){
+        deleteUser(email:"dkam@gmail.com"){
         user{
         firstName
         lastName

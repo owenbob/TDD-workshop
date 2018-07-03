@@ -26,7 +26,7 @@ user_mutation_response = {
 
 user_get_query = '''
     {
-        user {
+        users{
             edges {
             node {
                 username
@@ -41,7 +41,7 @@ user_get_query = '''
 
 users_email_firstname = '''
     {
-        user {
+        users {
             edges {
             node {
                 email
@@ -53,20 +53,20 @@ users_email_firstname = '''
 '''
 
 get_users_usernames = '''
-    {
-        user {
-            edges {
-            node {
-                username
-            }
-            }
+ {
+  users {
+    edges {
+      node {
+            username
+           }
+          }
         }
-    }
+  }
 '''
 
-user_get_query_reponse = {
+user_get_query_response = {
     "data": {
-        "user": {
+        "users": {
         "edges": [
             {
             "node": {
@@ -81,9 +81,9 @@ user_get_query_reponse = {
     }
 }
 
-users_email_firstname_reponse = {
+users_email_firstname_response = {
     "data": {
-        "user": {
+        "users": {
         "edges": [
             {
                 "node": {
@@ -96,16 +96,21 @@ users_email_firstname_reponse = {
     }
 }
 
-users_usernames_reponse = {
-    "data": {
-        "user": {
-        "edges": [
-            {
-                "node": {
-                    "username": "patrick"
-                }
-            }
-        ]
-        }
-    }
-}
+users_usernames_response = {
+                                "data": {
+                                    "users": {
+                                    "edges": [
+                                        {
+                                        "node": {
+                                            "username": "patrick"
+                                        }
+                                        },
+                                        {
+                                        "node": {
+                                            "username": "jcole"
+                                        }
+                                        }
+                                    ]
+                                    }
+                                }
+                                }
