@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/owenbob/TDD-workshop.svg?branch=master)](https://travis-ci.org/owenbob/TDD-workshop)
+
 #  Testing GraphqL Python Flask API .
 
 ## TTD-workshop repo is a simple API written 
@@ -27,6 +29,11 @@ pip install -r requirements.txt
 At the terminal or console type
 ```
 python app.py
+```
+## Run tests
+Set `APP_SETTINGS` to tests
+```
+export APP_SETTINGS=testing
 ```
 To run tests run this command at the console/terminal
 ```
