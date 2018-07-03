@@ -1,0 +1,9 @@
+[
+  "test_Deleteuser.py::DeleteUser::test_deleteuser_mutation",
+  "test_Updateuser.py::DeleteUser::test_updateuser_mutation",
+  "test_create_user.py::TestUser::test_create_user",
+  "test_create_user.py::TestUser::test_query_user",
+  "test_create_user.py::TestUser::test_query_users_email_firstname",
+  "test_create_user.py::TestUser::test_query_users_usernames",
+  "test_schema.py::QueryTest::test_user_query"
+]
